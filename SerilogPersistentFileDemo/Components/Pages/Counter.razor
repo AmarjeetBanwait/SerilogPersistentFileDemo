@@ -1,0 +1,26 @@
+﻿@page "/counter"
+@inject ILogger<Counter> Logger
+
+
+<PageTitle>Home</PageTitle>
+<h3>Counter</h3>
+
+<EditForm FormName="Hello" Model="this" OnSubmit="IncrementCount" Enhance>
+	<InputNumber class="d-none" @bind-Value="currentCount" />
+	<button class="btn btn-outline-dark elevation--z2" type="submit">Counter</button>
+</EditForm>
+
+<br />
+
+<div>@currentCount</div>
+
+@code {
+	[SupplyParameterFromForm]
+	private int currentCount { get; set; } = 0;
+
+	private void IncrementCount()
+	{
+		Logger.LogInformation("Counter increased");
+		currentCount++;
+	}
+}
