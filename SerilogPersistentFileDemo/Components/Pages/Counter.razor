@@ -20,7 +20,7 @@
 
 	private void IncrementCount()
 	{
-		Logger.LogInformation("Counter increased");
 		currentCount++;
+		Logger.LogInformation("Counter increased {counter}", currentCount);
 	}
 }
